@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Pizza Lider - A Número 1 do Pedaço! Desde 2007 fazendo a melhor pizza da região em Contagem, MG." />
+  <meta name="description" content="Pizza Lider — A Número 1 do Pedaço! Desde 2007 fazendo a melhor pizza de Contagem, MG." />
   <title>Pizzalider | A Número 1 do Pedaço</title>
 
   <!-- FAVICON -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='90'>🍕</text></svg>" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
 
   <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,727 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- CSS INTEGRADO -->
-  <style>
-    /* VARIÁVEIS */
-    :root {
-      --verde: #2d9b2d;
-      --vermelho: #b71d35;
-      --amarelo: #ffd700;
-      --cinza-bg: #f5f5f5;
-      --cinza-claro: #ffffff;
-      --cinza-escuro: #2d3436;
-      --texto: #333333;
-      --border: #e0e0e0;
-    }
-
-    /* RESET */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Nunito', sans-serif;
-      background-color: var(--cinza-bg);
-      color: var(--texto);
-      line-height: 1.6;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 700;
-    }
-
-    /* SCROLLBAR */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #f1f1f1; }
-    ::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, var(--verde), var(--vermelho));
-      border-radius: 10px;
-    }
-
-    /* NAVBAR */
-    header {
-      background: linear-gradient(270deg, var(--verde), var(--vermelho));
-      color: white;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .navbar-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo-btn {
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 1.5rem;
-      font-weight: bold;
-      font-family: 'Oswald', sans-serif;
-      letter-spacing: 2px;
-    }
-
-    .logo-emoji { animation: bounce 2s infinite; }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-
-    .logo-text { display: none; }
-    @media (min-width: 768px) { .logo-text { display: inline; } }
-
-    .nav-desktop { display: none; gap: 2rem; }
-    @media (min-width: 768px) { .nav-desktop { display: flex; } }
-
-    .nav-link {
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.875rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding-bottom: 0.5rem;
-      position: relative;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 3px;
-      background: var(--amarelo);
-      transition: width 0.3s;
-    }
-
-    .nav-link:hover::after,
-    .nav-link.active::after { width: 100%; }
-
-    .nav-link.active { color: var(--amarelo); }
-
-    .menu-btn {
-      display: block;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    @media (min-width: 768px) { .menu-btn { display: none; } }
-
-    .nav-mobile {
-      background-color: rgba(0,0,0,0.1);
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .nav-mobile-link {
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-      padding: 0.75rem;
-      text-align: left;
-      font-family: 'Oswald', sans-serif;
-      text-transform: uppercase;
-      font-size: 0.875rem;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .nav-mobile-link:hover,
-    .nav-mobile-link.active { background-color: rgba(255,255,255,0.1); color: var(--amarelo); }
-
-    /* HERO */
-    .hero-section {
-      background: linear-gradient(270deg, var(--verde), var(--vermelho));
-      color: white;
-      padding: 3rem 1rem;
-      text-align: center;
-    }
-
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .hero-subtitle {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      color: var(--amarelo);
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-    }
-
-    .hero-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-
-    @media (min-width: 768px) { .hero-title { font-size: 3.5rem; } }
-
-    .hero-highlight { color: var(--amarelo); }
-
-    .hero-text {
-      font-size: 0.875rem;
-      opacity: 0.95;
-      margin-bottom: 1.5rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    @media (min-width: 768px) { .hero-text { font-size: 1rem; } }
-
-    .hero-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      justify-content: center;
-    }
-
-    @media (min-width: 640px) { .hero-buttons { flex-direction: row; } }
-
-    /* BOTÕES */
-    .btn {
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 9999px;
-      font-family: 'Oswald', sans-serif;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      letter-spacing: 1px;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .btn-primary {
-      background-color: var(--amarelo);
-      color: #333;
-    }
-
-    .btn-primary:hover {
-      background-color: #ffcc00;
-      transform: scale(1.05);
-    }
-
-    .btn-secondary {
-      background-color: transparent;
-      color: white;
-      border: 2px solid white;
-    }
-
-    .btn-secondary:hover {
-      background-color: white;
-      color: var(--vermelho);
-    }
-
-    .btn-small {
-      background-color: var(--vermelho);
-      color: white;
-      padding: 0.5rem 1rem;
-      font-size: 0.75rem;
-    }
-
-    .btn-small:hover { background-color: #a01729; }
-
-    .btn-outline {
-      background-color: transparent;
-      color: var(--verde);
-      border: 2px solid var(--verde);
-    }
-
-    .btn-outline:hover {
-      background-color: var(--verde);
-      color: white;
-    }
-
-    /* CARD SECTION */
-    .card-section {
-      padding: 2rem 1rem;
-      background-color: var(--cinza-bg);
-    }
-
-    .card-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      background-color: white;
-      border-radius: 1.5rem;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      border-bottom: 1px solid #e0e0e0;
-    }
-
-    @media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
-
-    .stat-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 1.5rem;
-      border-right: 1px solid #e0e0e0;
-      text-align: center;
-    }
-
-    .stat-item:last-child { border-right: none; }
-
-    .stat-emoji { font-size: 1.5rem; }
-
-    .stat-value {
-      font-size: 1.875rem;
-      font-weight: 700;
-      color: var(--verde);
-      font-family: 'Oswald', sans-serif;
-    }
-
-    .stat-desc {
-      font-size: 0.75rem;
-      color: #666;
-      font-weight: 500;
-    }
-
-    .content-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      border-bottom: 1px solid #e0e0e0;
-    }
-
-    @media (min-width: 768px) { .content-grid { grid-template-columns: 1fr 1fr; } }
-
-    .text-content { padding: 2rem; }
-
-    .content-label {
-      color: var(--vermelho);
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
-
-    .content-title {
-      font-size: 1.875rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-
-    .verde { color: var(--verde); }
-
-    .content-text {
-      font-size: 0.875rem;
-      color: #666;
-      margin-bottom: 1rem;
-      line-height: 1.6;
-    }
-
-    .image-placeholder {
-      background: linear-gradient(135deg, var(--verde), #228B22);
-      min-height: 250px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 3rem;
-    }
-
-    /* PROMO */
-    .promo-section {
-      background: linear-gradient(to right, var(--verde), #228B22);
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    .promo-label {
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      color: var(--amarelo);
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
-
-    .promo-title {
-      font-size: 1.875rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      animation: bounce 2s infinite;
-    }
-
-    .promo-text {
-      font-size: 0.875rem;
-      opacity: 0.9;
-      margin-bottom: 1rem;
-    }
-
-    .promo-price {
-      display: inline-block;
-      background-color: var(--amarelo);
-      color: #333;
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      padding: 0.5rem 2rem;
-      border-radius: 9999px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    .promo-footer {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .promo-item {
-      padding: 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: white;
-    }
-
-    .promo-red { background-color: var(--vermelho); }
-    .promo-dark { background-color: var(--cinza-escuro); }
-
-    .promo-item-title {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 0.25rem;
-    }
-
-    .promo-item-sub {
-      font-size: 0.75rem;
-      opacity: 0.7;
-    }
-
-    .promo-item-price {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--amarelo);
-    }
-
-    /* HORÁRIO */
-    .horario-section {
-      background-color: var(--cinza-escuro);
-      color: white;
-      padding: 2rem 1rem;
-    }
-
-    .horario-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .horario-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 2rem;
-      color: var(--amarelo);
-    }
-
-    .horario-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-
-    .horario-item {
-      background-color: rgba(255,255,255,0.1);
-      padding: 1.5rem;
-      border-radius: 0.75rem;
-    }
-
-    .horario-dia {
-      font-size: 0.875rem;
-      color: #aaa;
-      margin-bottom: 0.5rem;
-    }
-
-    .horario-hora {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--verde);
-    }
-
-    /* CARDÁPIO */
-    .cardapio-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-    }
-
-    .page-title {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #333;
-      margin-bottom: 0.5rem;
-    }
-
-    .page-subtitle {
-      font-size: 0.875rem;
-      color: #666;
-      margin-bottom: 2rem;
-    }
-
-    .filter-section,
-    .size-section {
-      background-color: white;
-      padding: 1.5rem;
-      border-radius: 1rem;
-      border: 1px solid var(--border);
-      margin-bottom: 1.5rem;
-    }
-
-    .filter-label,
-    .size-label {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #666;
-      margin-bottom: 1rem;
-      letter-spacing: 1px;
-    }
-
-    .filter-buttons,
-    .size-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .filter-btn,
-    .size-btn {
-      padding: 0.75rem 1rem;
-      border-radius: 9999px;
-      border: none;
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.875rem;
-      cursor: pointer;
-      background-color: #f0f0f0;
-      color: #666;
-      transition: all 0.3s;
-    }
-
-    .filter-btn.active,
-    .size-btn.active {
-      background-color: var(--vermelho);
-      color: white;
-      transform: scale(1.05);
-    }
-
-    .pizzas-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 3rem;
-    }
-
-    .pizza-card {
-      background-color: white;
-      border-radius: 1rem;
-      overflow: hidden;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      transition: all 0.3s;
-    }
-
-    .pizza-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 25px rgba(196, 30, 58, 0.25);
-    }
-
-    .pizza-header {
-      background: linear-gradient(to right, var(--verde), #228B22);
-      color: white;
-      padding: 1rem;
-    }
-
-    .pizza-name {
-      font-size: 1.125rem;
-      font-weight: 700;
-      margin: 0;
-    }
-
-    .pizza-body { padding: 1.5rem; }
-
-    .pizza-ingredients {
-      font-size: 0.875rem;
-      color: #666;
-      margin-bottom: 1rem;
-      line-height: 1.5;
-    }
-
-    .pizza-price {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #fff0f2;
-      padding: 0.75rem;
-      border-radius: 0.75rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ffd6db;
-    }
-
-    .pizza-price span:first-child {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #666;
-    }
-
-    .price-value {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--vermelho);
-      font-family: 'Oswald', sans-serif;
-    }
-
-    .btn-whatsapp {
-      display: block;
-      width: 100%;
-      padding: 0.75rem;
-      background-color: #22c55e;
-      color: white;
-      text-align: center;
-      border-radius: 0.75rem;
-      text-decoration: none;
-      font-family: 'Oswald', sans-serif;
-      font-weight: 700;
-      font-size: 0.875rem;
-      text-transform: uppercase;
-      transition: all 0.3s;
-      animation: pulse 2.5s ease-out infinite;
-    }
-
-    .btn-whatsapp:hover {
-      background-color: #16a34a;
-      animation: none;
-      transform: scale(1.05);
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); transform: scale(1); }
-      50% { box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); transform: scale(1.05); }
-      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); transform: scale(1); }
-    }
-
-    /* FOOTER */
-    .footer {
-      background: linear-gradient(270deg, var(--verde), var(--vermelho));
-      color: white;
-      padding: 2rem 1rem;
-      margin-top: 2rem;
-    }
-
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto 1.5rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-
-    .footer-title {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.125rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .footer-text {
-      font-size: 0.875rem;
-      opacity: 0.85;
-      line-height: 1.6;
-    }
-
-    .footer-list {
-      list-style: none;
-      font-size: 0.875rem;
-      opacity: 0.85;
-      line-height: 1.8;
-    }
-
-    .footer-link {
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-      font-size: 0.875rem;
-      opacity: 0.85;
-    }
-
-    .footer-link:hover {
-      opacity: 1;
-      color: var(--amarelo);
-    }
-
-    .footer-bottom {
-      text-align: center;
-      font-size: 0.75rem;
-      opacity: 0.7;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 1rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    /* WHATSAPP FLOAT */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
-      width: 3.5rem;
-      height: 3.5rem;
-      background-color: #22c55e;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.875rem;
-      text-decoration: none;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      transition: all 0.3s;
-      z-index: 99;
-      animation: pulse 2.5s ease-out infinite;
-    }
-
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-      animation: none;
-    }
-
-    main { min-height: calc(100vh - 200px); }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -749,372 +29,507 @@
   <script type="text/babel">
     const { useState } = React;
 
+    /* ===== DADOS ===== */
     const PIZZAS = {
       classicas: [
-        { name: 'À Moda',    ingredients: 'Muçarela, presunto, calabresa, milho, tomate, pimentão, cebola e bacon',    prices: { media: 34, grande: 39, gigante: 53 } },
-        { name: 'Calabresa', ingredients: 'Muçarela, calabresa, tomate e cebola',                                       prices: { media: 34, grande: 39, gigante: 53 } },
-        { name: 'Presunto',  ingredients: 'Muçarela, presunto, milho e cebola',                                         prices: { media: 34, grande: 39, gigante: 53 } },
-        { name: 'Legal',     ingredients: 'Muçarela, presunto, calabresa, azeitona, pimentão, cebola e bacon',          prices: { media: 34, grande: 39, gigante: 53 } },
-        { name: 'Milho',     ingredients: 'Muçarela, milho e tomate',                                                   prices: { media: 34, grande: 39, gigante: 53 } },
+        { name: 'À Moda',    ingredients: 'Muçarela, presunto, calabresa, milho, tomate, pimentão, cebola e bacon',    prices: { media:34, grande:39, gigante:53 } },
+        { name: 'Calabresa', ingredients: 'Muçarela, calabresa, tomate e cebola',                                       prices: { media:34, grande:39, gigante:53 } },
+        { name: 'Presunto',  ingredients: 'Muçarela, presunto, milho e cebola',                                         prices: { media:34, grande:39, gigante:53 } },
+        { name: 'Legal',     ingredients: 'Muçarela, presunto, calabresa, azeitona, pimentão, cebola e bacon',          prices: { media:34, grande:39, gigante:53 } },
+        { name: 'Milho',     ingredients: 'Muçarela, milho e tomate',                                                   prices: { media:34, grande:39, gigante:53 } },
       ],
       especiais: [
-        { name: 'Mussarela',        ingredients: 'Muçarela e tomate',                                                           prices: { media: 36, grande: 42, gigante: 54 } },
-        { name: 'Marguerita',       ingredients: 'Muçarela, tomate e manjericão',                                               prices: { media: 36, grande: 42, gigante: 54 } },
-        { name: 'Napolitana',       ingredients: 'Muçarela, presunto, cebola, azeitona verde e tomate',                         prices: { media: 36, grande: 42, gigante: 54 } },
-        { name: 'Mixta',            ingredients: 'Muçarela, presunto, calabresa, frango, tomate, pimentão, cebola e bacon',     prices: { media: 36, grande: 42, gigante: 54 } },
-        { name: 'Presunto Especial',ingredients: 'Muçarela, presunto, milho e bacon',                                           prices: { media: 36, grande: 42, gigante: 54 } },
-        { name: 'Lombinho',         ingredients: 'Muçarela, lombo canadense, milho e catupiri',                                 prices: { media: 36, grande: 42, gigante: 54 } },
-        { name: 'Portuguesa',       ingredients: 'Muçarela, presunto, calabresa, azeitona preta, ovo, cebola e bacon',          prices: { media: 36, grande: 42, gigante: 54 } },
-        { name: 'Vegetariana',      ingredients: 'Muçarela, palmito, milho, tomate, azeitona preta, pimentão e cebola',         prices: { media: 36, grande: 42, gigante: 54 } },
-        { name: 'Saborosa',         ingredients: 'Muçarela, champignon, provolone, milho, azeitona preta e catupiri',           prices: { media: 36, grande: 42, gigante: 54 } },
+        { name: 'Mussarela',         ingredients: 'Muçarela e tomate',                                                           prices: { media:36, grande:42, gigante:54 } },
+        { name: 'Marguerita',        ingredients: 'Muçarela, tomate e manjericão',                                               prices: { media:36, grande:42, gigante:54 } },
+        { name: 'Napolitana',        ingredients: 'Muçarela, presunto, cebola, azeitona verde e tomate',                         prices: { media:36, grande:42, gigante:54 } },
+        { name: 'Mixta',             ingredients: 'Muçarela, presunto, calabresa, frango, tomate, pimentão, cebola e bacon',     prices: { media:36, grande:42, gigante:54 } },
+        { name: 'Presunto Especial', ingredients: 'Muçarela, presunto, milho e bacon',                                           prices: { media:36, grande:42, gigante:54 } },
+        { name: 'Lombinho',          ingredients: 'Muçarela, lombo canadense, milho e catupiri',                                 prices: { media:36, grande:42, gigante:54 } },
+        { name: 'Portuguesa',        ingredients: 'Muçarela, presunto, calabresa, azeitona preta, ovo, cebola e bacon',          prices: { media:36, grande:42, gigante:54 } },
+        { name: 'Vegetariana',       ingredients: 'Muçarela, palmito, milho, tomate, azeitona preta, pimentão e cebola',         prices: { media:36, grande:42, gigante:54 } },
       ],
       frango: [
-        { name: 'Frango à Bolonhesa',     ingredients: 'Muçarela, frango, milho e molho à bolonhesa',                      prices: { media: 39, grande: 45, gigante: 55 } },
-        { name: 'Frango Catupiri',        ingredients: 'Muçarela, frango e catupiri',                                       prices: { media: 39, grande: 45, gigante: 55 } },
-        { name: 'Brasileira',             ingredients: 'Muçarela, presunto, palmito, azeitona verde, milho, tomate, cebola e bacon', prices: { media: 39, grande: 45, gigante: 55 } },
-        { name: 'Calábria',               ingredients: 'Muçarela, calabresa, frango, cebola e molho à bolonhesa',           prices: { media: 39, grande: 45, gigante: 55 } },
+        { name: 'Frango à Bolonhesa', ingredients: 'Muçarela, frango, milho e molho à bolonhesa',                               prices: { media:39, grande:45, gigante:55 } },
+        { name: 'Frango Catupiri',    ingredients: 'Muçarela, frango e catupiri',                                                prices: { media:39, grande:45, gigante:55 } },
+        { name: 'Brasileira',         ingredients: 'Muçarela, presunto, palmito, azeitona verde, milho, tomate, cebola e bacon', prices: { media:39, grande:45, gigante:55 } },
+        { name: 'Calábria',           ingredients: 'Muçarela, calabresa, frango, cebola e molho à bolonhesa',                   prices: { media:39, grande:45, gigante:55 } },
       ],
       premium: [
-        { name: 'Bacon',                        ingredients: 'Muçarela, bacon, tomate e milho',                                          prices: { media: 41, grande: 47, gigante: 57 } },
-        { name: 'Atum',                         ingredients: 'Muçarela, atum, cebola e azeitona preta',                                  prices: { media: 41, grande: 47, gigante: 57 } },
-        { name: 'Champignon',                   ingredients: 'Muçarela, champignon, palmito e catupiri',                                  prices: { media: 41, grande: 47, gigante: 57 } },
-        { name: 'Pepperoni',                    ingredients: 'Muçarela e pepperoni',                                                      prices: { media: 41, grande: 47, gigante: 57 } },
-        { name: 'Palmito à Bolonhesa',          ingredients: 'Muçarela, palmito e molho à bolonhesa',                                    prices: { media: 41, grande: 47, gigante: 57 } },
-        { name: 'Master',                       ingredients: 'Muçarela, calabresa, lombo, milho, palmito, frango, azeitona preta e bacon', prices: { media: 41, grande: 47, gigante: 57 } },
-        { name: 'Suprema',                      ingredients: 'Muçarela, frango, palmito, milho, catupiri e bacon',                        prices: { media: 41, grande: 47, gigante: 57 } },
-        { name: '4 Queijos',                    ingredients: 'Muçarela, parmesão, provolone e catupiri',                                  prices: { media: 41, grande: 47, gigante: 57 } },
-        { name: '4 Carnes',                     ingredients: 'Muçarela, presunto, pepperoni e bacon',                                     prices: { media: 41, grande: 47, gigante: 57 } },
-        { name: 'Salaminho',                    ingredients: 'Muçarela e salaminho',                                                      prices: { media: 41, grande: 47, gigante: 57 } },
-        { name: 'Frango c/ Palmito à Bolonhesa',ingredients: 'Muçarela, frango, palmito e molho à bolonhesa',                            prices: { media: 41, grande: 47, gigante: 57 } },
+        { name: 'Bacon',      ingredients: 'Muçarela, bacon, tomate e milho',                                                    prices: { media:41, grande:47, gigante:57 } },
+        { name: 'Atum',       ingredients: 'Muçarela, atum, cebola e azeitona preta',                                            prices: { media:41, grande:47, gigante:57 } },
+        { name: 'Champignon', ingredients: 'Muçarela, champignon, palmito e catupiri',                                           prices: { media:41, grande:47, gigante:57 } },
+        { name: 'Pepperoni',  ingredients: 'Muçarela e pepperoni',                                                               prices: { media:41, grande:47, gigante:57 } },
+        { name: 'Master',     ingredients: 'Muçarela, calabresa, lombo, milho, palmito, frango, azeitona preta e bacon',         prices: { media:41, grande:47, gigante:57 } },
+        { name: 'Suprema',    ingredients: 'Muçarela, frango, palmito, milho, catupiri e bacon',                                 prices: { media:41, grande:47, gigante:57 } },
       ],
     };
 
     const FILIAIS = [
-      {
-        nome: 'Água Branca',
-        endereco: 'Rua Cardeal Arco Verde, 386 - Loja B',
-        cidade: 'Contagem, MG',
-        telefone: '(31) 3393-1850',
-        whatsapp: '5531993567726',
-        whatsappLabel: '(31) 99356-7726',
-        mapUrl: 'https://www.google.com.br/maps/place/PIZZA+L%C3%8DDER/@-19.9299494,-44.0365744,17z',
-        emoji: '🟢',
-      },
-      {
-        nome: 'Industrial',
-        endereco: 'Av. Benjamin Guimarães, 332 - Loja B',
-        cidade: 'Contagem, MG',
-        telefone: '(31) 3046-5165',
-        whatsapp: '5531989070316',
-        whatsappLabel: '(31) 98907-0316',
-        mapUrl: 'https://www.google.com.br/maps/place/Pizza+Lider/@-19.9780449,-44.0405839,17z',
-        emoji: '🔴',
-      },
+      { id:1, nome:'Água Branca', endereco:'Rua Cardeal Arco Verde, 386 — Loja B', cidade:'Contagem, MG', tel:'(31) 3393-1850', telNum:'3133931850', whats:'5531993567726', whatsLabel:'(31) 99356-7726', mapa:'https://www.google.com.br/maps/place/PIZZA+L%C3%8DDER/@-19.9299494,-44.0365744,17z' },
+      { id:2, nome:'Industrial',  endereco:'Av. Benjamin Guimarães, 332 — Loja B', cidade:'Contagem, MG', tel:'(31) 3046-5165', telNum:'3130465165', whats:'5531989070316', whatsLabel:'(31) 98907-0316', mapa:'https://www.google.com.br/maps/place/Pizza+Lider/@-19.9780449,-44.0405839,17z' },
     ];
 
-    const CATEGORIAS = [
-      { key: 'all',      label: 'Todas',     emoji: '🍕' },
-      { key: 'classicas',label: 'Clássicas', emoji: '⭐' },
-      { key: 'especiais',label: 'Especiais', emoji: '🌟' },
-      { key: 'frango',   label: 'Frango',    emoji: '🐔' },
-      { key: 'premium',  label: 'Premium',   emoji: '👑' },
+    const CATS = [
+      { key:'all',       label:'Todas',     emoji:'🍕' },
+      { key:'classicas', label:'Clássicas', emoji:'⭐' },
+      { key:'especiais', label:'Especiais', emoji:'🌟' },
+      { key:'frango',    label:'Frango',    emoji:'🐔' },
+      { key:'premium',   label:'Premium',   emoji:'👑' },
     ];
 
     const TAMANHOS = [
-      { key: 'media',   label: 'Média',   info: '25 cm · 4 fatias' },
-      { key: 'grande',  label: 'Grande',  info: '30 cm · 6 fatias' },
-      { key: 'gigante', label: 'Gigante', info: '35 cm · 8 fatias' },
+      { key:'media',   label:'Média · 25cm' },
+      { key:'grande',  label:'Grande · 30cm' },
+      { key:'gigante', label:'Gigante · 35cm' },
     ];
 
+    const fmt = (v) => `R$ ${v.toFixed(2).replace('.',',')}`;
+
+    /* ===== APP ===== */
     function App() {
-      const [page, setPage] = useState('home');
+      const [pagina,    setPagina]    = useState('home');
+      const [carrinho,  setCarrinho]  = useState([]);
+      const [tamanho,   setTamanho]   = useState('grande');
+      const [cat,       setCat]       = useState('all');
+      const [busca,     setBusca]     = useState('');
+      const [modalOpen, setModalOpen] = useState(false);
+      const [menuOpen,  setMenuOpen]  = useState(false);
+      const [toast,     setToast]     = useState(null);
 
-      function Navbar() {
-        const [menuOpen, setMenuOpen] = useState(false);
-        const links = [
-          { key: 'home',     label: 'Início'    },
-          { key: 'cardapio', label: 'Cardápio'  },
-          { key: 'filiais',  label: 'Filiais'   },
-          { key: 'contato',  label: 'Contato'   },
-        ];
+      const ir = (p) => { setPagina(p); setMenuOpen(false); window.scrollTo(0,0); };
 
-        return (
-          <header>
-            <div className="navbar-container">
-              <button className="logo-btn" onClick={() => { setPage('home'); setMenuOpen(false); }}>
-                <span className="logo-emoji">🍕</span>
-                <span className="logo-text">PIZZALIDER</span>
+      const addCarrinho = (pizza) => {
+        setCarrinho(prev => [...prev, {
+          id: `${pizza.name}-${tamanho}-${Date.now()}`,
+          name: pizza.name, tamanho, preco: pizza.prices[tamanho]
+        }]);
+        setToast(`✓ ${pizza.name} adicionado!`);
+        setTimeout(() => setToast(null), 2200);
+      };
+
+      const remItem = (id) => setCarrinho(prev => prev.filter(i => i.id !== id));
+      const total   = () => carrinho.reduce((s,i) => s + i.preco, 0);
+
+      const enviarWhats = () => {
+        if (!carrinho.length) return;
+        const itens = carrinho.map(i => `• ${i.name} (${i.tamanho})`).join('\n');
+        const msg = `Olá! Gostaria de fazer um pedido:\n\n${itens}\n\nTotal: ${fmt(total())}`;
+        window.open(`https://wa.me/5531993567726?text=${encodeURIComponent(msg)}`, '_blank');
+        setCarrinho([]); setModalOpen(false);
+      };
+
+      const allPizzas = Object.entries(PIZZAS).flatMap(([c,items]) => items.map(p => ({...p, cat:c})));
+      let pizzas = cat === 'all' ? allPizzas : PIZZAS[cat].map(p => ({...p, cat}));
+      if (busca.trim()) pizzas = pizzas.filter(p => p.name.toLowerCase().includes(busca.toLowerCase()));
+
+      /* ===== NAVBAR ===== */
+      const Navbar = () => (
+        <>
+          <nav className="navbar">
+            <div className="navbar-inner">
+              <button className="logo" onClick={() => ir('home')}>
+                <img src="assets/logo.png" alt="Logo Pizzalider" style={{width: '40px', height: '40px', objectFit: 'cover', borderRadius: '4px'}} />
+                <span>PIZZALIDER</span>
               </button>
 
-              <nav className="nav-desktop">
-                {links.map(l => (
-                  <button key={l.key} onClick={() => setPage(l.key)} className={`nav-link ${page === l.key ? 'active' : ''}`}>
-                    {l.label}
+              <div className="nav-links">
+                {['home','cardapio','filiais','contato'].map(p => (
+                  <button key={p} onClick={() => ir(p)} className={`nav-btn ${pagina===p?'ativo':''}`}>
+                    {p==='home'?'Início':p.charAt(0).toUpperCase()+p.slice(1)}
                   </button>
                 ))}
-              </nav>
+              </div>
 
-              <button className="menu-btn" onClick={() => setMenuOpen(!menuOpen)}>
-                {menuOpen ? '✕' : '☰'}
-              </button>
-
-              {menuOpen && (
-                <div className="nav-mobile">
-                  {links.map(l => (
-                    <button key={l.key} onClick={() => { setPage(l.key); setMenuOpen(false); }} className={`nav-mobile-link ${page === l.key ? 'active' : ''}`}>
-                      {l.label}
-                    </button>
-                  ))}
-                </div>
-              )}
+              <div className="nav-right">
+                {pagina==='cardapio' && (
+                  <button className={`btn-carrinho ${carrinho.length>0?'cheio':''}`} onClick={() => setModalOpen(true)}>
+                    🛒
+                    {carrinho.length > 0 && <span className="badge-num">{carrinho.length}</span>}
+                  </button>
+                )}
+                <button className="btn-menu" onClick={() => setMenuOpen(o => !o)}>
+                  {menuOpen ? '✕' : '☰'}
+                </button>
+              </div>
             </div>
-          </header>
-        );
-      }
+          </nav>
+          {menuOpen && (
+            <div className="nav-mobile">
+              {['home','cardapio','filiais','contato'].map(p => (
+                <button key={p} onClick={() => ir(p)} className={`nav-mobile-btn ${pagina===p?'ativo':''}`}>
+                  {p==='home'?'Início':p.charAt(0).toUpperCase()+p.slice(1)}
+                </button>
+              ))}
+            </div>
+          )}
+        </>
+      );
 
-      function HomePage() {
-        return (
-          <div>
-            <section className="hero-section">
-              <div className="hero-content">
-                <p className="hero-subtitle">Desde 2007 · Contagem, MG</p>
-                <h2 className="hero-title">A NÚMERO 1<br /><span className="hero-highlight">DO PEDAÇO!</span></h2>
-                <p className="hero-text">Empresa familiar que faz as melhores pizzas da região com amor, dedicação e produtos selecionados.</p>
-                <div className="hero-buttons">
-                  <button className="btn btn-primary" onClick={() => setPage('cardapio')}>Ver Cardápio 🍕</button>
-                  <button className="btn btn-secondary" onClick={() => setPage('filiais')}>Nossas Filiais 📍</button>
-                </div>
+      /* ===== HOME ===== */
+      const Home = () => (
+        <>
+          {/* Hero */}
+          <section className="hero">
+            <div className="hero-bg"></div>
+            <div className="hero-overlay"></div>
+            <div className="hero-content">
+              <div className="hero-tag">⭐ Desde 2007 · Contagem, MG</div>
+              <h1 className="hero-titulo">A NÚMERO 1<br/><span>DO PEDAÇO!</span></h1>
+              <p className="hero-sub">Empresa familiar que faz as melhores pizzas da região com amor, dedicação e ingredientes selecionados.</p>
+              <div className="hero-btns">
+                <button className="btn btn-primary" onClick={() => ir('cardapio')}>Ver Cardápio 🍕</button>
+                <button className="btn btn-secondary" onClick={() => ir('filiais')}>Nossas Filiais 📍</button>
               </div>
-            </section>
+            </div>
+          </section>
 
-            <section className="card-section">
-              <div className="card-container">
-                <div className="stats-grid">
-                  {[
-                    { valor: '+17',  desc: 'Anos de experiência', emoji: '🏆' },
-                    { valor: '+30',  desc: 'Sabores de pizza',    emoji: '🍕' },
-                    { valor: '2',    desc: 'Filiais em Contagem', emoji: '📍' },
-                    { valor: '100%', desc: 'Feita com amor',      emoji: '❤️' },
-                  ].map((s, i) => (
-                    <div key={i} className="stat-item">
-                      <span className="stat-emoji">{s.emoji}</span>
-                      <span className="stat-value">{s.valor}</span>
-                      <span className="stat-desc">{s.desc}</span>
-                    </div>
-                  ))}
+          {/* Stats */}
+          <section className="stats-section">
+            <div className="stats-grid">
+              {[['🏆','+17','Anos de história'],['🍕','+30','Sabores incríveis'],['📍','2','Filiais em Contagem'],['❤️','100%','Feito com amor']].map(([ic,v,d],i) => (
+                <div key={i} className="stat-item">
+                  <div className="stat-icone">{ic}</div>
+                  <div className="stat-numero">{v}</div>
+                  <div className="stat-desc">{d}</div>
                 </div>
+              ))}
+            </div>
+          </section>
 
-                <div className="content-grid">
-                  <div className="text-content">
-                    <p className="content-label">Nossa História</p>
-                    <h3 className="content-title">A Paixão por <span className="verde">Pizza</span></h3>
-                    <p className="content-text">Empresa familiar desde <strong>2007</strong>, fazemos a melhor pizza da região com amor, dedicação e ingredientes selecionados.</p>
-                    <p className="content-text">Sempre visando agradar nossos clientes, mantemos o compromisso de entregar excelência em cada pedido.</p>
-                    <button className="btn btn-small" onClick={() => setPage('cardapio')}>Peça já a sua!</button>
+          {/* Sobre */}
+          <section className="sobre-section">
+            <div className="sobre-inner">
+              <div>
+                <p className="sobre-label">Nossa História</p>
+                <h2 className="sobre-titulo">A Paixão por <span>Pizza</span></h2>
+                <p className="sobre-texto">Empresa familiar desde <strong>2007</strong>, fazemos a melhor pizza da região com amor, dedicação e ingredientes selecionados.</p>
+                <p className="sobre-texto">Sempre visando agradar nossos clientes, mantemos o compromisso de entregar excelência em cada pedido — da massa ao recheio.</p>
+                <button className="btn btn-primary btn-sm" onClick={() => ir('cardapio')} style={{marginTop:'1rem'}}>
+                  Peça já a sua →
+                </button>
+              </div>
+              <div className="sobre-foto">
+                <div className="sobre-foto-placeholder"></div>
+              </div>
+            </div>
+          </section>
+
+          {/* Promoções */}
+          <section className="promo-section">
+            <div className="promo-inner">
+              <p className="secao-tag claro">🔥 Promoções</p>
+              <h2 className="secao-titulo claro" style={{marginBottom:'2rem'}}>Ofertas Especiais</h2>
+
+              <div className="promo-destaque">
+                <span className="promo-badge">Oferta do Dia</span>
+                <h3>🎉 MEGA PROMOÇÃO</h3>
+                <p>1 Pizza Gigante + Guaraná Antártica 2L</p>
+                <div className="promo-preco">R$ 65,00</div>
+              </div>
+
+              <div className="promo-cards">
+                <div className="promo-card vermelho">
+                  <div>
+                    <h4>2 Pizzas Grandes</h4>
+                    <p>Sabores selecionados</p>
                   </div>
-                  <div className="image-placeholder"></div>
+                  <span className="promo-card-preco">R$ 60,00</span>
                 </div>
-
-                <div className="promo-section">
-                  <p className="promo-label">Oferta Especial</p>
-                  <h3 className="promo-title">🎉 MEGA PROMOÇÃO</h3>
-                  <p className="promo-text">1 Pizza Gigante + Guaraná Antártica 2L</p>
-                  <span className="promo-price">R$ 65,00</span>
-                </div>
-
-                <div className="promo-footer">
-                  {[
-                    { titulo: '2 Pizzas Grandes', sub: 'Sabores selecionados', preco: 'R$ 60,00', cor: 'promo-red' },
-                    { titulo: '2 Pizzas Grandes', sub: 'Sabores premium',      preco: 'R$ 70,00', cor: 'promo-dark' },
-                  ].map((p, i) => (
-                    <div key={i} className={`promo-item ${p.cor}`}>
-                      <div>
-                        <p className="promo-item-title">{p.titulo}</p>
-                        <p className="promo-item-sub">{p.sub}</p>
-                      </div>
-                      <span className="promo-item-price">{p.preco}</span>
-                    </div>
-                  ))}
+                <div className="promo-card escuro">
+                  <div>
+                    <h4>2 Pizzas Grandes</h4>
+                    <p>Sabores premium + Refri</p>
+                  </div>
+                  <span className="promo-card-preco">R$ 70,00</span>
                 </div>
               </div>
-            </section>
+            </div>
+          </section>
 
-            <section className="horario-section">
-              <div className="horario-container">
-                <h3 className="horario-title">⏰ Horário de Funcionamento</h3>
-                <div className="horario-grid">
-                  {[
-                    { dia: 'Domingo',           hora: '18:00 – 23:00' },
-                    { dia: 'Segunda a Quinta',  hora: '18:00 – 23:30' },
-                    { dia: 'Sexta e Sábado',    hora: '18:00 – 00:00' },
-                  ].map((h, i) => (
-                    <div key={i} className="horario-item">
-                      <p className="horario-dia">{h.dia}</p>
-                      <p className="horario-hora">{h.hora}</p>
-                    </div>
-                  ))}
-                </div>
+          {/* Horário */}
+          <section className="horario-section">
+            <div className="horario-inner">
+              <p className="secao-tag escuro">⏰ Funcionamento</p>
+              <h2 className="secao-titulo escuro" style={{marginBottom:'2rem'}}>Horário de Atendimento</h2>
+              <div className="horario-grid">
+                {[['Domingo','18:00 – 23:00'],['Segunda a Quinta','18:00 – 23:30'],['Sexta e Sábado','18:00 – 00:00']].map(([d,h],i) => (
+                  <div key={i} className="horario-card">
+                    <div className="horario-dia">{d}</div>
+                    <div className="horario-hora">{h}</div>
+                  </div>
+                ))}
               </div>
-            </section>
-          </div>
-        );
-      }
+            </div>
+          </section>
+        </>
+      );
 
-      function CardapioPage() {
-        const [categoria, setCategoria] = useState('all');
-        const [tamanho, setTamanho] = useState('grande');
-        const allPizzas = Object.entries(PIZZAS).flatMap(([cat, items]) => items.map(p => ({ ...p, cat })));
-        const lista = categoria === 'all' ? allPizzas : PIZZAS[categoria].map(p => ({ ...p, cat: categoria }));
+      /* ===== CARDÁPIO ===== */
+      const Cardapio = () => (
+        <section className="cardapio-section">
+          <div className="cardapio-inner">
+            <div className="page-hero" style={{margin:'-5rem -1.5rem 3rem', padding:'4rem 1.5rem 3.5rem'}}>
+              <div className="page-hero-inner">
+                <h1 className="page-hero-titulo">Nosso <span>Cardápio</span></h1>
+                <p className="page-hero-sub">Todas as pizzas acompanham molho ao sugo e orégano</p>
+              </div>
+            </div>
 
-        return (
-          <div className="cardapio-container">
-            <h2 className="page-title">Nosso <span className="verde">Cardápio</span></h2>
-            <p className="page-subtitle">Todas as pizzas acompanham molho ao sugo e orégano.</p>
-
-            <div className="filter-section">
-              <p className="filter-label">Categoria</p>
-              <div className="filter-buttons">
-                {CATEGORIAS.map(c => (
-                  <button key={c.key} onClick={() => setCategoria(c.key)} className={`filter-btn ${categoria === c.key ? 'active' : ''}`}>
+            {/* Filtros */}
+            <div className="filtros-wrap">
+              <div className="busca-input-wrap">
+                <span className="busca-icone">🔍</span>
+                <input className="busca-input" type="text" placeholder="Buscar pizza... ex: Calabresa, Frango, Bacon" value={busca} onChange={e => setBusca(e.target.value)} />
+              </div>
+              <div className="filtros-row">
+                {CATS.map(c => (
+                  <button key={c.key} className={`filtro-btn ${cat===c.key?'ativo':''}`} onClick={() => setCat(c.key)}>
                     {c.emoji} {c.label}
                   </button>
                 ))}
               </div>
             </div>
 
-            <div className="size-section">
-              <p className="size-label">Tamanho</p>
-              <div className="size-buttons">
-                {TAMANHOS.map(t => (
-                  <button key={t.key} onClick={() => setTamanho(t.key)} className={`size-btn ${tamanho === t.key ? 'active' : ''}`}>
-                    <span className="size-name">{t.label}</span>
-                    <span className="size-info">{t.info}</span>
-                  </button>
+            {/* Tamanhos */}
+            <div className="tamanhos-row">
+              {TAMANHOS.map(t => (
+                <button key={t.key} className={`tamanho-btn ${tamanho===t.key?'ativo':''}`} onClick={() => setTamanho(t.key)}>
+                  {t.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Grid */}
+            {pizzas.length > 0 ? (
+              <div className="pizzas-grid">
+                {pizzas.map((p,i) => (
+                  <div key={i} className="pizza-card" style={{animationDelay:`${i*0.04}s`}}>
+                    <div className="pizza-card-topo">
+                      <h3 className="pizza-nome">{p.name}</h3>
+                      <span className="pizza-cat-badge">{p.cat}</span>
+                    </div>
+                    <div className="pizza-body">
+                      <p className="pizza-ingredientes">{p.ingredients}</p>
+                    </div>
+                    <div className="pizza-rodape">
+                      <div className="pizza-preco">
+                        <span>Preço</span>
+                        <span className="pizza-valor">{fmt(p.prices[tamanho])}</span>
+                      </div>
+                      <button className="btn-add" onClick={() => addCarrinho(p)}>
+                        + Adicionar
+                      </button>
+                    </div>
+                  </div>
                 ))}
               </div>
-            </div>
-
-            <div className="pizzas-grid">
-              {lista.map((pizza, idx) => (
-                <div key={idx} className="pizza-card">
-                  <div className="pizza-header"><h3 className="pizza-name">{pizza.name}</h3></div>
-                  <div className="pizza-body">
-                    <p className="pizza-ingredients">{pizza.ingredients}</p>
-                    <div className="pizza-price">
-                      <span>Preço</span>
-                      <span className="price-value">R$ {pizza.prices[tamanho].toFixed(2).replace('.', ',')}</span>
-                    </div>
-                    <a href={`https://wa.me/5531993567726?text=Olá! Quero pedir uma pizza ${pizza.name} (${tamanho})`} target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
-                      🟢 Pedir via WhatsApp
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
+            ) : (
+              <div className="pizza-vazio">
+                <span>🍕</span>
+                <p>Nenhuma pizza encontrada</p>
+              </div>
+            )}
           </div>
-        );
-      }
+        </section>
+      );
 
-      function FiliaisPage() {
-        return (
-          <div className="filiais-container">
-            <h2 className="page-title">Nossas <span className="verde">Filiais</span></h2>
-            <p className="page-subtitle">Duas unidades para melhor atendê-lo em Contagem, MG.</p>
+      /* ===== FILIAIS ===== */
+      const Filiais = () => (
+        <section className="filiais-section">
+          <div className="filiais-inner">
+            <div className="page-hero" style={{margin:'-5rem -1.5rem 3rem', padding:'4rem 1.5rem 3.5rem', background:'var(--preto)'}}>
+              <div className="page-hero-inner">
+                <h1 className="page-hero-titulo">Nossas <span>Filiais</span></h1>
+                <p className="page-hero-sub">Duas unidades em Contagem para melhor atendê-lo</p>
+              </div>
+            </div>
 
             <div className="filiais-grid">
-              {FILIAIS.map((f, i) => (
-                <div key={i} className="filial-card">
-                  <div className="filial-header">
-                    <span className="filial-emoji">{f.emoji}</span>
-                    <h3 className="filial-nome">Filial {f.nome}</h3>
+              {FILIAIS.map((f,i) => (
+                <div key={f.id} className="filial-card" style={{animationDelay:`${i*0.1}s`}}>
+                  <div className="filial-topo">
+                    <div className="filial-icone">{i===0 ? '🟢' : '🔴'}</div>
+                    <div>
+                      <h3 className="filial-nome">Filial {f.nome}</h3>
+                      <p className="filial-cidade">{f.cidade}</p>
+                    </div>
                   </div>
                   <div className="filial-body">
-                    <div>
-                      <p className="filial-label">Endereço</p>
-                      <p className="filial-text">{f.endereco}</p>
-                      <p className="filial-city">{f.cidade}</p>
+                    <div className="filial-info-item">
+                      <p className="filial-info-label">Endereço</p>
+                      <p className="filial-info-val">{f.endereco}</p>
                     </div>
-                    <div className="filial-contacts">
-                      <div><p className="filial-label">Telefone</p><a href={`tel:${f.telefone.replace(/\D/g,'')}`} className="filial-link">{f.telefone}</a></div>
-                      <div><p className="filial-label">WhatsApp</p><a href={`https://wa.me/${f.whatsapp}`} target="_blank" rel="noopener noreferrer" className="filial-link">{f.whatsappLabel}</a></div>
+                    <div className="filial-contatos">
+                      <a href={`https://wa.me/${f.whats}`} target="_blank" rel="noopener noreferrer" className="filial-link whats">
+                        💬 {f.whatsLabel}
+                      </a>
+                      <a href={`tel:${f.telNum}`} className="filial-link tel">
+                        📞 {f.tel}
+                      </a>
+                      <a href={f.mapa} target="_blank" rel="noopener noreferrer" className="filial-link mapa">
+                        📍 Ver no Google Maps
+                      </a>
                     </div>
-                    <a href={f.mapUrl} target="_blank" rel="noopener noreferrer" className="btn btn-outline">📍 Ver no Google Maps</a>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-        );
-      }
+        </section>
+      );
 
-      function ContatoPage() {
-        return (
-          <div className="contato-container">
-            <h2 className="page-title">Entre em <span className="verde">Contato</span></h2>
-            <p className="page-subtitle">Estamos sempre prontos para atendê-lo com carinho!</p>
+      /* ===== CONTATO ===== */
+      const Contato = () => (
+        <section className="contato-section">
+          <div className="contato-inner">
+            <div className="page-hero" style={{margin:'-5rem -1.5rem 3rem', padding:'4rem 1.5rem 3.5rem', background:'var(--preto)'}}>
+              <div className="page-hero-inner">
+                <h1 className="page-hero-titulo">Entre em <span>Contato</span></h1>
+                <p className="page-hero-sub">Estamos prontos para atendê-lo!</p>
+              </div>
+            </div>
 
-            <div className="contato-sections">
-              <div>
-                <h3 className="contato-title">💬 WhatsApp</h3>
-                <div className="contato-grid">
-                  {FILIAIS.map((f, i) => (
-                    <a key={i} href={`https://wa.me/${f.whatsapp}?text=Olá! Gostaria de fazer um pedido.`} target="_blank" rel="noopener noreferrer" className="contato-link whatsapp">
-                      <span className="contato-emoji">🟢</span>
-                      <div><p className="contato-link-title">{f.nome}</p><p className="contato-link-sub">{f.whatsappLabel}</p></div>
+            <div className="contato-grid">
+              <div className="contato-card">
+                <h3>💬 WhatsApp</h3>
+                <div className="contato-links">
+                  {FILIAIS.map(f => (
+                    <a key={f.id} href={`https://wa.me/${f.whats}?text=Olá! Gostaria de fazer um pedido.`} target="_blank" rel="noopener noreferrer" className="contato-link whats">
+                      <span style={{fontSize:'1.4rem'}}>🟢</span>
+                      <div className="contato-link-texto">
+                        <span className="contato-link-titulo">{f.nome}</span>
+                        <span className="contato-link-sub">{f.whatsLabel}</span>
+                      </div>
                     </a>
                   ))}
                 </div>
               </div>
 
-              <div>
-                <h3 className="contato-title">☎️ Telefone</h3>
-                <div className="contato-grid">
-                  {FILIAIS.map((f, i) => (
-                    <a key={i} href={`tel:${f.telefone.replace(/\D/g,'')}`} className="contato-link phone">
-                      <span className="contato-emoji">📞</span>
-                      <div><p className="contato-link-title">{f.nome}</p><p className="contato-link-sub">{f.telefone}</p></div>
+              <div className="contato-card">
+                <h3>📞 Telefone</h3>
+                <div className="contato-links">
+                  {FILIAIS.map(f => (
+                    <a key={f.id} href={`tel:${f.telNum}`} className="contato-link tel">
+                      <span style={{fontSize:'1.4rem'}}>📞</span>
+                      <div className="contato-link-texto">
+                        <span className="contato-link-titulo">{f.nome}</span>
+                        <span className="contato-link-sub">{f.tel}</span>
+                      </div>
                     </a>
                   ))}
-                </div>
-              </div>
-
-              <div>
-                <h3 className="contato-title">🌐 Redes Sociais</h3>
-                <div style={{display: 'flex', gap: '0.5rem'}}>
-                  <a href="https://pt-br.facebook.com/PizzaLideranumero1" target="_blank" rel="noopener noreferrer" className="btn btn-social facebook">📘 Facebook</a>
-                  <a href="https://instagram.com/pizzalideraguabranca" target="_blank" rel="noopener noreferrer" className="btn btn-social instagram">📸 Instagram</a>
                 </div>
               </div>
             </div>
           </div>
-        );
-      }
+        </section>
+      );
 
-      function Footer() {
+      /* ===== MODAL CARRINHO ===== */
+      const Modal = () => {
+        if (!modalOpen || pagina !== 'cardapio') return null;
         return (
-          <footer className="footer">
-            <div className="footer-container">
-              <div><h4 className="footer-title">🍕 PIZZALIDER</h4><p className="footer-text">A número 1 do pedaço! Empresa familiar desde 2007 fazendo as melhores pizzas de Contagem, MG.</p></div>
-              <div><h4 className="footer-title">Navegação</h4><ul className="footer-list">{[['home','Início'],['cardapio','Cardápio'],['filiais','Filiais'],['contato','Contato']].map(([k,l]) => (<li key={k}><button onClick={() => setPage(k)} className="footer-link">{l}</button></li>))}</ul></div>
-              <div><h4 className="footer-title">Horários</h4><ul className="footer-list"><li>Domingo: 18:00 – 23:00</li><li>Seg–Qui: 18:00 – 23:30</li><li>Sex–Sáb: 18:00 – 00:00</li></ul></div>
+          <div className="modal-overlay" onClick={() => setModalOpen(false)}>
+            <div className="modal-box" onClick={e => e.stopPropagation()}>
+              <div className="modal-header">
+                <h2>🛒 Seu Carrinho {carrinho.length > 0 && <span style={{fontSize:'0.9rem',color:'var(--cinza-400)',fontFamily:'Nunito',fontWeight:400}}>({carrinho.length} {carrinho.length===1?'item':'itens'})</span>}</h2>
+                <button className="modal-fechar" onClick={() => setModalOpen(false)}>✕</button>
+              </div>
+              <div className="modal-body">
+                {carrinho.length > 0 ? (
+                  <>
+                    {carrinho.map(item => (
+                      <div key={item.id} className="carrinho-item">
+                        <div className="carrinho-item-info">
+                          <h4>{item.name}</h4>
+                          <span className="carrinho-item-tamanho">Pizza {item.tamanho}</span>
+                        </div>
+                        <div style={{display:'flex',alignItems:'center',gap:'0.75rem'}}>
+                          <span className="carrinho-item-preco">{fmt(item.preco)}</span>
+                          <button className="btn-remover-item" onClick={() => remItem(item.id)}>✕</button>
+                        </div>
+                      </div>
+                    ))}
+                    <div className="carrinho-total">
+                      <span>Total</span>
+                      <span className="carrinho-total-valor">{fmt(total())}</span>
+                    </div>
+                    <button className="btn btn-verde btn-block" style={{marginTop:'1.5rem'}} onClick={enviarWhats}>
+                      📱 Enviar pedido por WhatsApp
+                    </button>
+                  </>
+                ) : (
+                  <div className="carrinho-vazio">
+                    <span>🛒</span>
+                    <p>Seu carrinho está vazio</p>
+                    <p style={{fontSize:'0.82rem',marginTop:'0.4rem'}}>Adicione pizzas para fazer seu pedido!</p>
+                  </div>
+                )}
+              </div>
             </div>
-            <div className="footer-bottom">© 2024 Pizzalider · Contagem, MG · Todos os direitos reservados.</div>
-          </footer>
+          </div>
         );
-      }
+      };
 
+      /* ===== FOOTER ===== */
+      const Footer = () => (
+        <footer className="footer">
+          <div className="footer-inner">
+            <div>
+              <div className="footer-logo">
+                <span className="logo-emoji">🍕</span>
+                <span className="footer-logo-nome">PIZZALIDER</span>
+              </div>
+              <p className="footer-desc">A número 1 do pedaço! Empresa familiar desde 2007 fazendo as melhores pizzas de Contagem, MG.</p>
+            </div>
+            <div>
+              <p className="footer-titulo">Navegação</p>
+              <ul className="footer-lista">
+                {[['home','Início'],['cardapio','Cardápio'],['filiais','Filiais'],['contato','Contato']].map(([k,l]) => (
+                  <li key={k}><button className="footer-link-btn" onClick={() => ir(k)}>{l}</button></li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="footer-titulo">Horários</p>
+              <ul className="footer-lista">
+                <li>Domingo: 18h – 23h</li>
+                <li>Seg – Qui: 18h – 23h30</li>
+                <li>Sex – Sáb: 18h – 00h</li>
+              </ul>
+            </div>
+            <div>
+              <p className="footer-titulo">Contato</p>
+              <ul className="footer-lista">
+                {FILIAIS.map(f => (
+                  <li key={f.id} style={{marginBottom:'0.5rem'}}>
+                    <strong style={{color:'rgba(255,255,255,0.5)',display:'block',fontSize:'0.75rem'}}>{f.nome}</strong>
+                    {f.tel}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div className="footer-bottom">
+            <span className="footer-copy">© 2024 Pizzalider · Contagem, MG · Todos os direitos reservados.</span>
+          </div>
+        </footer>
+      );
+
+      /* ===== RENDER ===== */
       return (
-        <div>
+        <>
           <Navbar />
           <main>
-            {page === 'home'     && <HomePage />}
-            {page === 'cardapio' && <CardapioPage />}
-            {page === 'filiais'  && <FiliaisPage />}
-            {page === 'contato'  && <ContatoPage />}
+            {pagina === 'home'     && <Home />}
+            {pagina === 'cardapio' && <Cardapio />}
+            {pagina === 'filiais'  && <Filiais />}
+            {pagina === 'contato'  && <Contato />}
           </main>
           <Footer />
-          <a href="https://wa.me/5531993567726?text=Olá! Quero fazer um pedido." target="_blank" rel="noopener noreferrer" className="whatsapp-float">💬</a>
-        </div>
+          <Modal />
+          {toast && <div className="toast">{toast}</div>}
+          <a href="https://wa.me/5531993567726?text=Olá! Quero fazer um pedido." target="_blank" rel="noopener noreferrer" className="whats-float" title="WhatsApp">💬</a>
+        </>
       );
     }
 
