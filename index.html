@@ -65,7 +65,7 @@
     };
 
     const FILIAIS = [
-      { id:1, nome:'Água Branca', endereco:'Rua Cardeal Arco Verde, 386 — Loja B', cidade:'Contagem, MG', tel:'(31) 3393-1850', telNum:'3133931850', whats:'5531993567726', whatsLabel:'(31) 99356-7726', mapa:'https://www.google.com.br/maps/place/PIZZA+L%C3%8DDER/@-19.9299494,-44.0365744,17z', icone:'🍕' },
+      { id:1, nome:'Água Branca', endereco:'Rua Cardeal Arco Verde, 386 — Loja A', cidade:'Contagem, MG', tel:'(31) 3393-1850', telNum:'3133931850', whats:'5531993567726', whatsLabel:'(31) 99356-7726', mapa:'https://www.google.com.br/maps/place/PIZZA+L%C3%8DDER/@-19.9299494,-44.0365744,17z', icone:'🍕' },
       { id:2, nome:'Industrial',  endereco:'Av. Benjamin Guimarães, 332 — Loja B', cidade:'Contagem, MG', tel:'(31) 3046-5165', telNum:'3130465165', whats:'5531989070316', whatsLabel:'(31) 98907-0316', mapa:'https://www.google.com.br/maps/place/Pizza+Lider/@-19.9780449,-44.0405839,17z', icone:'🔥' },
     ];
 
@@ -103,6 +103,7 @@
       const [modalOpen, setModalOpen] = useState(false);
       const [menuOpen,  setMenuOpen]  = useState(false);
       const [toast,     setToast]     = useState(null);
+      const [pagamento, setPagamento] = useState('pix');
 
       const ir = (p) => { setPagina(p); setMenuOpen(false); window.scrollTo(0,0); };
 
@@ -121,9 +122,15 @@
       const enviarWhats = () => {
         if (!carrinho.length) return;
         const itens = carrinho.map(i => `• ${i.name} (${i.tamanho})`).join('\n');
-        const msg = `Olá! Gostaria de fazer um pedido:\n\n${itens}\n\nTotal: ${fmt(total())}`;
+        const pagamentoLabel = {
+          'pix': '💳 PIX',
+          'dinheiro': '💵 Dinheiro',
+          'debito': '🏧 Débito',
+          'credito': '💳 Crédito'
+        }[pagamento];
+        const msg = `Olá! Gostaria de fazer um pedido:\n\n${itens}\n\n💰 Total: ${fmt(total())}\n📱 Forma de Pagamento: ${pagamentoLabel}`;
         window.open(`https://wa.me/5531993567726?text=${encodeURIComponent(msg)}`, '_blank');
-        setCarrinho([]); setModalOpen(false);
+        setCarrinho([]); setModalOpen(false); setPagamento('pix');
       };
 
       const allPizzas = Object.entries(PIZZAS).flatMap(([c,items]) => items.map(p => ({...p, cat:c})));
@@ -228,7 +235,7 @@
               <p className="secao-tag claro">🔥 Promoções</p>
               <h2 className="secao-titulo claro" style={{marginBottom:'2rem'}}>Ofertas Especiais</h2>
 
-              <div className="promo-destaque">
+              <div className="promo-destaque" style={{marginBottom:'3rem', cursor:'pointer'}} onClick={() => {ir('cardapio'); setTamanho('gigante');}}>
                 <span className="promo-badge">Oferta do Dia</span>
                 <h3>🎉 MEGA PROMOÇÃO</h3>
                 <p>1 Pizza Gigante + Guaraná Antártica 2L</p>
@@ -236,14 +243,14 @@
               </div>
 
               <div className="promo-cards">
-                <div className="promo-card vermelho">
+                <div className="promo-card vermelho" style={{cursor:'pointer'}} onClick={() => {ir('cardapio'); setTamanho('grande');}}>
                   <div>
                     <h4>2 Pizzas Grandes</h4>
                     <p>Sabores selecionados</p>
                   </div>
                   <span className="promo-card-preco">R$ 60,00</span>
                 </div>
-                <div className="promo-card escuro">
+                <div className="promo-card escuro" style={{cursor:'pointer'}} onClick={() => {ir('cardapio'); setTamanho('grande');}}>
                   <div>
                     <h4>2 Pizzas Grandes</h4>
                     <p>Sabores premium + Refri</p>
@@ -464,7 +471,62 @@
                       <span>Total</span>
                       <span className="carrinho-total-valor">{fmt(total())}</span>
                     </div>
-                    <button className="btn btn-verde btn-block" style={{marginTop:'1.5rem'}} onClick={enviarWhats}>
+
+                    <div style={{marginTop:'1.5rem', marginBottom:'1.5rem'}}>
+                      <p style={{fontSize:'0.9rem', fontWeight:'600', marginBottom:'0.8rem', color:'rgba(255,255,255,0.8)'}}>Forma de Pagamento:</p>
+                      <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'0.8rem'}}>
+                        <button onClick={() => setPagamento('pix')} style={{
+                          padding:'0.8rem',
+                          border: pagamento === 'pix' ? '3px solid #c41e3a' : '2px solid #444',
+                          borderRadius:'0.6rem',
+                          backgroundColor: '#2a2a2a',
+                          color: '#fff',
+                          cursor:'pointer',
+                          fontWeight: pagamento === 'pix' ? '600' : '500',
+                          transition:'all 0.2s ease'
+                        }}>
+                          💳 PIX
+                        </button>
+                        <button onClick={() => setPagamento('dinheiro')} style={{
+                          padding:'0.8rem',
+                          border: pagamento === 'dinheiro' ? '3px solid #c41e3a' : '2px solid #444',
+                          borderRadius:'0.6rem',
+                          backgroundColor: '#2a2a2a',
+                          color: '#fff',
+                          cursor:'pointer',
+                          fontWeight: pagamento === 'dinheiro' ? '600' : '500',
+                          transition:'all 0.2s ease'
+                        }}>
+                          💵 Dinheiro
+                        </button>
+                        <button onClick={() => setPagamento('debito')} style={{
+                          padding:'0.8rem',
+                          border: pagamento === 'debito' ? '3px solid #c41e3a' : '2px solid #444',
+                          borderRadius:'0.6rem',
+                          backgroundColor: '#2a2a2a',
+                          color: '#fff',
+                          cursor:'pointer',
+                          fontWeight: pagamento === 'debito' ? '600' : '500',
+                          transition:'all 0.2s ease'
+                        }}>
+                          🏧 Débito
+                        </button>
+                        <button onClick={() => setPagamento('credito')} style={{
+                          padding:'0.8rem',
+                          border: pagamento === 'credito' ? '3px solid #c41e3a' : '2px solid #444',
+                          borderRadius:'0.6rem',
+                          backgroundColor: '#2a2a2a',
+                          color: '#fff',
+                          cursor:'pointer',
+                          fontWeight: pagamento === 'credito' ? '600' : '500',
+                          transition:'all 0.2s ease'
+                        }}>
+                          💳 Crédito
+                        </button>
+                      </div>
+                    </div>
+
+                    <button className="btn btn-verde btn-block" style={{marginTop:'0.5rem'}} onClick={enviarWhats}>
                       📱 Enviar pedido por WhatsApp
                     </button>
                   </>
