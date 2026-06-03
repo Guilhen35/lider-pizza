@@ -65,8 +65,8 @@
     };
 
     const FILIAIS = [
-      { id:1, nome:'Água Branca', endereco:'Rua Cardeal Arco Verde, 386 — Loja B', cidade:'Contagem, MG', tel:'(31) 3393-1850', telNum:'3133931850', whats:'5531993567726', whatsLabel:'(31) 99356-7726', mapa:'https://www.google.com.br/maps/place/PIZZA+L%C3%8DDER/@-19.9299494,-44.0365744,17z' },
-      { id:2, nome:'Industrial',  endereco:'Av. Benjamin Guimarães, 332 — Loja B', cidade:'Contagem, MG', tel:'(31) 3046-5165', telNum:'3130465165', whats:'5531989070316', whatsLabel:'(31) 98907-0316', mapa:'https://www.google.com.br/maps/place/Pizza+Lider/@-19.9780449,-44.0405839,17z' },
+      { id:1, nome:'Água Branca', endereco:'Rua Cardeal Arco Verde, 386 — Loja B', cidade:'Contagem, MG', tel:'(31) 3393-1850', telNum:'3133931850', whats:'5531993567726', whatsLabel:'(31) 99356-7726', mapa:'https://www.google.com.br/maps/place/PIZZA+L%C3%8DDER/@-19.9299494,-44.0365744,17z', icone:'🍕' },
+      { id:2, nome:'Industrial',  endereco:'Av. Benjamin Guimarães, 332 — Loja B', cidade:'Contagem, MG', tel:'(31) 3046-5165', telNum:'3130465165', whats:'5531989070316', whatsLabel:'(31) 98907-0316', mapa:'https://www.google.com.br/maps/place/Pizza+Lider/@-19.9780449,-44.0405839,17z', icone:'🔥' },
     ];
 
     const CATS = [
@@ -85,7 +85,15 @@
 
     const fmt = (v) => `R$ ${v.toFixed(2).replace('.',',')}`;
 
-    /* ===== APP ===== */
+    // Função para normalizar nome e procurar imagem
+    const getNomeImagem = (nome) => {
+      return nome
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '') // Remove acentos
+        .replace(/\s+/g, '') // Remove espaços
+        + '.png';
+    };
     function App() {
       const [pagina,    setPagina]    = useState('home');
       const [carrinho,  setCarrinho]  = useState([]);
@@ -304,7 +312,7 @@
               <div className="pizzas-grid">
                 {pizzas.map((p,i) => (
                   <div key={i} className="pizza-card" style={{animationDelay:`${i*0.04}s`}}>
-                    <img src={p.image} alt={p.name} style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '1rem 1rem 0 0'}} />
+                    <img src={`assets/${getNomeImagem(p.name)}`} alt={p.name} style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '1rem 1rem 0 0'}} />
                     <div className="pizza-card-topo">
                       <h3 className="pizza-nome">{p.name}</h3>
                       <span className="pizza-cat-badge">{p.cat}</span>
@@ -349,7 +357,9 @@
               {FILIAIS.map((f,i) => (
                 <div key={f.id} className="filial-card" style={{animationDelay:`${i*0.1}s`}}>
                   <div className="filial-topo">
-                    <div className="filial-icone">{i===0 ? '🟢' : '🔴'}</div>
+                    <div className="filial-icone">
+                      <img src="assets/logo.png" alt="Logo Pizzalider" style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%'}} />
+                    </div>
                     <div>
                       <h3 className="filial-nome">Filial {f.nome}</h3>
                       <p className="filial-cidade">{f.cidade}</p>
@@ -368,7 +378,7 @@
                         📞 {f.tel}
                       </a>
                       <a href={f.mapa} target="_blank" rel="noopener noreferrer" className="filial-link mapa">
-                        📍 Ver no Google Maps
+                        🗺️ Abrir GPS
                       </a>
                     </div>
                   </div>
