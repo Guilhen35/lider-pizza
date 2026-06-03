@@ -32,35 +32,35 @@
     /* ===== DADOS ===== */
     const PIZZAS = {
       classicas: [
-        { name: 'À Moda',    ingredients: 'Muçarela, presunto, calabresa, milho, tomate, pimentão, cebola e bacon',    prices: { media:34, grande:39, gigante:53 } },
-        { name: 'Calabresa', ingredients: 'Muçarela, calabresa, tomate e cebola',                                       prices: { media:34, grande:39, gigante:53 } },
-        { name: 'Presunto',  ingredients: 'Muçarela, presunto, milho e cebola',                                         prices: { media:34, grande:39, gigante:53 } },
-        { name: 'Legal',     ingredients: 'Muçarela, presunto, calabresa, azeitona, pimentão, cebola e bacon',          prices: { media:34, grande:39, gigante:53 } },
-        { name: 'Milho',     ingredients: 'Muçarela, milho e tomate',                                                   prices: { media:34, grande:39, gigante:53 } },
+        { name: 'À Moda',    image: 'https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg', ingredients: 'Muçarela, presunto, calabresa, milho, tomate, pimentão, cebola e bacon',    prices: { media:34, grande:39, gigante:53 } },
+        { name: 'Calabresa', image: 'https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg', ingredients: 'Muçarela, calabresa, tomate e cebola',                                       prices: { media:34, grande:39, gigante:53 } },
+        { name: 'Presunto',  image: 'https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg', ingredients: 'Muçarela, presunto, milho e cebola',                                         prices: { media:34, grande:39, gigante:53 } },
+        { name: 'Legal',     image: 'https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg', ingredients: 'Muçarela, presunto, calabresa, azeitona, pimentão, cebola e bacon',          prices: { media:34, grande:39, gigante:53 } },
+        { name: 'Milho',     image: 'https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg', ingredients: 'Muçarela, milho e tomate',                                                   prices: { media:34, grande:39, gigante:53 } },
       ],
       especiais: [
-        { name: 'Mussarela',         ingredients: 'Muçarela e tomate',                                                           prices: { media:36, grande:42, gigante:54 } },
-        { name: 'Marguerita',        ingredients: 'Muçarela, tomate e manjericão',                                               prices: { media:36, grande:42, gigante:54 } },
-        { name: 'Napolitana',        ingredients: 'Muçarela, presunto, cebola, azeitona verde e tomate',                         prices: { media:36, grande:42, gigante:54 } },
-        { name: 'Mixta',             ingredients: 'Muçarela, presunto, calabresa, frango, tomate, pimentão, cebola e bacon',     prices: { media:36, grande:42, gigante:54 } },
-        { name: 'Presunto Especial', ingredients: 'Muçarela, presunto, milho e bacon',                                           prices: { media:36, grande:42, gigante:54 } },
-        { name: 'Lombinho',          ingredients: 'Muçarela, lombo canadense, milho e catupiri',                                 prices: { media:36, grande:42, gigante:54 } },
-        { name: 'Portuguesa',        ingredients: 'Muçarela, presunto, calabresa, azeitona preta, ovo, cebola e bacon',          prices: { media:36, grande:42, gigante:54 } },
-        { name: 'Vegetariana',       ingredients: 'Muçarela, palmito, milho, tomate, azeitona preta, pimentão e cebola',         prices: { media:36, grande:42, gigante:54 } },
+        { name: 'Mussarela',         image: 'https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg', ingredients: 'Muçarela e tomate',                                                           prices: { media:36, grande:42, gigante:54 } },
+        { name: 'Marguerita',        image: 'https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg', ingredients: 'Muçarela, tomate e manjericão',                                               prices: { media:36, grande:42, gigante:54 } },
+        { name: 'Napolitana',        image: 'https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg', ingredients: 'Muçarela, presunto, cebola, azeitona verde e tomate',                         prices: { media:36, grande:42, gigante:54 } },
+        { name: 'Mixta',             image: 'https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg', ingredients: 'Muçarela, presunto, calabresa, frango, tomate, pimentão, cebola e bacon',     prices: { media:36, grande:42, gigante:54 } },
+        { name: 'Presunto Especial', image: 'https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg', ingredients: 'Muçarela, presunto, milho e bacon',                                           prices: { media:36, grande:42, gigante:54 } },
+        { name: 'Lombinho',          image: 'https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg', ingredients: 'Muçarela, lombo canadense, milho e catupiri',                                 prices: { media:36, grande:42, gigante:54 } },
+        { name: 'Portuguesa',        image: 'https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg', ingredients: 'Muçarela, presunto, calabresa, azeitona preta, ovo, cebola e bacon',          prices: { media:36, grande:42, gigante:54 } },
+        { name: 'Vegetariana',       image: 'https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg', ingredients: 'Muçarela, palmito, milho, tomate, azeitona preta, pimentão e cebola',         prices: { media:36, grande:42, gigante:54 } },
       ],
       frango: [
-        { name: 'Frango à Bolonhesa', ingredients: 'Muçarela, frango, milho e molho à bolonhesa',                               prices: { media:39, grande:45, gigante:55 } },
-        { name: 'Frango Catupiri',    ingredients: 'Muçarela, frango e catupiri',                                                prices: { media:39, grande:45, gigante:55 } },
-        { name: 'Brasileira',         ingredients: 'Muçarela, presunto, palmito, azeitona verde, milho, tomate, cebola e bacon', prices: { media:39, grande:45, gigante:55 } },
-        { name: 'Calábria',           ingredients: 'Muçarela, calabresa, frango, cebola e molho à bolonhesa',                   prices: { media:39, grande:45, gigante:55 } },
+        { name: 'Frango à Bolonhesa', image: 'https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg', ingredients: 'Muçarela, frango, milho e molho à bolonhesa',                               prices: { media:39, grande:45, gigante:55 } },
+        { name: 'Frango Catupiri',    image: 'https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg', ingredients: 'Muçarela, frango e catupiri',                                                prices: { media:39, grande:45, gigante:55 } },
+        { name: 'Brasileira',         image: 'https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg', ingredients: 'Muçarela, presunto, palmito, azeitona verde, milho, tomate, cebola e bacon', prices: { media:39, grande:45, gigante:55 } },
+        { name: 'Calábria',           image: 'https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg', ingredients: 'Muçarela, calabresa, frango, cebola e molho à bolonhesa',                   prices: { media:39, grande:45, gigante:55 } },
       ],
       premium: [
-        { name: 'Bacon',      ingredients: 'Muçarela, bacon, tomate e milho',                                                    prices: { media:41, grande:47, gigante:57 } },
-        { name: 'Atum',       ingredients: 'Muçarela, atum, cebola e azeitona preta',                                            prices: { media:41, grande:47, gigante:57 } },
-        { name: 'Champignon', ingredients: 'Muçarela, champignon, palmito e catupiri',                                           prices: { media:41, grande:47, gigante:57 } },
-        { name: 'Pepperoni',  ingredients: 'Muçarela e pepperoni',                                                               prices: { media:41, grande:47, gigante:57 } },
-        { name: 'Master',     ingredients: 'Muçarela, calabresa, lombo, milho, palmito, frango, azeitona preta e bacon',         prices: { media:41, grande:47, gigante:57 } },
-        { name: 'Suprema',    ingredients: 'Muçarela, frango, palmito, milho, catupiri e bacon',                                 prices: { media:41, grande:47, gigante:57 } },
+        { name: 'Bacon',      image: 'https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg', ingredients: 'Muçarela, bacon, tomate e milho',                                                    prices: { media:41, grande:47, gigante:57 } },
+        { name: 'Atum',       image: 'https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg', ingredients: 'Muçarela, atum, cebola e azeitona preta',                                            prices: { media:41, grande:47, gigante:57 } },
+        { name: 'Champignon', image: 'https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg', ingredients: 'Muçarela, champignon, palmito e catupiri',                                           prices: { media:41, grande:47, gigante:57 } },
+        { name: 'Pepperoni',  image: 'https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg', ingredients: 'Muçarela e pepperoni',                                                               prices: { media:41, grande:47, gigante:57 } },
+        { name: 'Master',     image: 'https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg', ingredients: 'Muçarela, calabresa, lombo, milho, palmito, frango, azeitona preta e bacon',         prices: { media:41, grande:47, gigante:57 } },
+        { name: 'Suprema',    image: 'https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg', ingredients: 'Muçarela, frango, palmito, milho, catupiri e bacon',                                 prices: { media:41, grande:47, gigante:57 } },
       ],
     };
 
@@ -304,6 +304,7 @@
               <div className="pizzas-grid">
                 {pizzas.map((p,i) => (
                   <div key={i} className="pizza-card" style={{animationDelay:`${i*0.04}s`}}>
+                    <img src={p.image} alt={p.name} style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '1rem 1rem 0 0'}} />
                     <div className="pizza-card-topo">
                       <h3 className="pizza-nome">{p.name}</h3>
                       <span className="pizza-cat-badge">{p.cat}</span>
